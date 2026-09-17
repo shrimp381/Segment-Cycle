@@ -1,4 +1,19 @@
 {
-  "SEGCYCLE.ShowHUD": "Show Segmented Cycle HUD",
-  "SEGCYCLE.ShowHUDHint": "Toggle the Day/Night segment tracker overlay for you."
+  "SEGCYCLE.ConfigTitle": "Segmented Cycle Settings",
+  "SEGCYCLE.Enabled": "Enable HUD",
+  "SEGCYCLE.EnabledHint": "Turns the whole Day/Night tracker on or off for you.",
+  "SEGCYCLE.Layout": "Layout",
+  "SEGCYCLE.LayoutHint": "Split shows Day and Night as two separate bars. Combined shows both bars together in one frame. Transition shows a single bar that flips from Day to Night once Day is full.",
+  "SEGCYCLE.BgTransparent": "Transparent background",
+  "SEGCYCLE.BgTransparentHint": "When on, the bar background uses the opacity slider below instead of the default solid look.",
+  "SEGCYCLE.BgOpacity": "Background opacity",
+  "SEGCYCLE.BgOpacityHint": "Only applies when transparent background is on.",
+  "SEGCYCLE.DayColor": "Day colour",
+  "SEGCYCLE.DaySegments": "Day segments",
+  "SEGCYCLE.NightColor": "Night colour",
+  "SEGCYCLE.NightSegments": "Night segments",
+  "SEGCYCLE.CustomEnabled": "Enable custom bar",
+  "SEGCYCLE.CustomLabel": "Custom bar label",
+  "SEGCYCLE.CustomColor": "Custom bar colour",
+  "SEGCYCLE.CustomSegments": "Custom bar segments"
 }
