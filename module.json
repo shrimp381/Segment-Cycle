@@ -4,7 +4,7 @@
   "description": "A draggable Day/Night segment tracker HUD for time gated city exploration. GM only by default, position and colour are per client, segment counts are shared with the table.",
   "version": "0.1.0",
   "compatibility": { "minimum": "11", "verified": "13" },
-  "authors": [{ "name": "Shrimp" }],
+  "authors": [{ "name": "Shrimp381" }],
   "esmodules": ["scripts/segmented-cycle.js"],
   "styles": ["styles/segmented-cycle.css"],
   "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }]
