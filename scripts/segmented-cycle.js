@@ -622,18 +622,40 @@ class SegmentedCycleHUD {
 
 let hud;
 
-function injectSidebarButton(app, html) {
+function openConfig() {
+  new SegmentedCycleConfig().render(true);
+}
+
+// Adds a Segmented Cycle button into the canvas' Scene Controls toolbar,
+// in the same "Notes" tool group Simple Calendar and similar modules use,
+// covering both the v11/v12 (array of control groups) and v13+ (object of
+// control groups) shapes of this hook.
+function addSceneControlButton(controls) {
   if (!game.user.isGM) return;
-  const root = html && html.jquery ? html[0] : html;
-  if (!root || root.querySelector(".segmented-cycle-config-button")) return;
-  const footer = root.querySelector(".directory-footer");
-  if (!footer) return;
-  const btn = document.createElement("button");
-  btn.type = "button";
-  btn.className = "segmented-cycle-config-button";
-  btn.innerHTML = '<i class="fas fa-circle-half-stroke"></i> Segmented Cycle';
-  btn.addEventListener("click", () => new SegmentedCycleConfig().render(true));
-  footer.appendChild(btn);
+
+  const tool = {
+    name: "segmentedCycle",
+    title: "Segmented Cycle",
+    icon: "fas fa-circle-half-stroke",
+    button: true,
+    onClick: openConfig,
+    onChange: openConfig,
+  };
+
+  if (Array.isArray(controls)) {
+    // v11/v12 shape: controls is an array of { name, tools: [] } groups.
+    const notes = controls.find((c) => c.name === "notes") ?? controls.find((c) => c.name === "token");
+    if (notes && !notes.tools.some((t) => t.name === tool.name)) {
+      notes.tools.push(tool);
+    }
+    return;
+  }
+
+  // v13+ shape: controls is an object keyed by group name, tools is an object too.
+  const notes = controls.notes ?? controls.token;
+  if (notes && notes.tools && !notes.tools[tool.name]) {
+    notes.tools[tool.name] = tool;
+  }
 }
 
 Hooks.once("init", () => {
@@ -649,6 +671,6 @@ Hooks.on("updateSetting", (setting) => {
   if (setting.key?.startsWith(`${MODULE_ID}.`)) hud?.render();
 });
 
-Hooks.on("renderJournalDirectory", (app, html) => {
-  injectSidebarButton(app, html);
+Hooks.on("getSceneControlButtons", (controls) => {
+  addSceneControlButton(controls);
 });
