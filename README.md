@@ -26,13 +26,3 @@ This module has not been submitted anywhere, so install it as a local/manual mod
 2. Copy the whole `segmented-cycle` folder (this one, containing `module.json`) into `Data/modules/`, so the path reads `Data/modules/segmented-cycle/module.json`.
 3. In your world, go to Game Settings > Manage Modules, enable "Segmented Cycle", and save.
 4. Reload. As the GM, you should see two bars appear near the top left of the screen.
-
-## Known limitations (first real install)
-
-This was built and syntax checked outside of Foundry, there is no Foundry instance available to test it live from here. Likely rough edges on first run:
-
-- Untested against the actual `game.settings` permission model on your specific Foundry version, if segment or colour changes silently fail to save, that is the first thing to check (open the browser console for errors).
-- Positioning assumes a standard desktop browser window; not yet checked against very small windows or the Forge overlay chrome.
-- No player-facing view yet, this is GM-only as built. Say the word if you want players to see a read-only version.
-
-Report back what breaks and it gets fixed from there.
