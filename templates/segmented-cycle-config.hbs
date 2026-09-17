@@ -1,0 +1,102 @@
+<form autocomplete="off">
+  <div class="form-group">
+    <label>Enable HUD</label>
+    <div class="form-fields">
+      <input type="checkbox" name="enabled" {{checked enabled}}>
+    </div>
+    <p class="notes">Turns the whole Day/Night tracker on or off for you.</p>
+  </div>
+
+  <div class="form-group">
+    <label>Layout</label>
+    <div class="form-fields">
+      <select name="layout">
+        {{selectOptions layouts selected=layout}}
+      </select>
+    </div>
+    <p class="notes">Split shows Day and Night as two bars. Combined shows both bars together in one frame. Transition shows a single bar that flips from Day to Night once Day is full.</p>
+  </div>
+
+  <fieldset>
+    <legend>Background</legend>
+    <div class="form-group">
+      <label>Transparent background</label>
+      <div class="form-fields">
+        <input type="checkbox" name="bgTransparent" {{checked bgTransparent}}>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Opacity</label>
+      <div class="form-fields">
+        <input type="range" name="bgOpacity" min="0" max="100" step="5" value="{{bgOpacity}}">
+        <span class="range-value">{{bgOpacity}}%</span>
+      </div>
+      <p class="notes">Only applies when transparent background is on.</p>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Day</legend>
+    <div class="form-group">
+      <label>Colour</label>
+      <div class="form-fields">
+        <input type="color" name="dayColor" value="{{dayColor}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Segments</label>
+      <div class="form-fields">
+        <input type="number" name="daySegments" min="1" max="20" value="{{daySegments}}">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Night</legend>
+    <div class="form-group">
+      <label>Colour</label>
+      <div class="form-fields">
+        <input type="color" name="nightColor" value="{{nightColor}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Segments</label>
+      <div class="form-fields">
+        <input type="number" name="nightSegments" min="1" max="20" value="{{nightSegments}}">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Custom bar</legend>
+    <div class="form-group">
+      <label>Enable</label>
+      <div class="form-fields">
+        <input type="checkbox" name="customEnabled" {{checked customEnabled}}>
+      </div>
+      <p class="notes">A third, independent bar for anything that is not Day or Night, an alert track, a countdown, whatever you need.</p>
+    </div>
+    <div class="form-group">
+      <label>Label</label>
+      <div class="form-fields">
+        <input type="text" name="customLabel" value="{{customLabel}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Colour</label>
+      <div class="form-fields">
+        <input type="color" name="customColor" value="{{customColor}}">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Segments</label>
+      <div class="form-fields">
+        <input type="number" name="customSegments" min="1" max="20" value="{{customSegments}}">
+      </div>
+    </div>
+  </fieldset>
+
+  <footer class="sheet-footer flexrow">
+    <button type="submit"><i class="fas fa-save"></i> Save</button>
+  </footer>
+</form>
