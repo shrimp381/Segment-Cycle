@@ -633,17 +633,16 @@ function openConfig() {
 function addSceneControlButton(controls) {
   if (!game.user.isGM) return;
 
-  const tool = {
-    name: "segmentedCycle",
-    title: "Segmented Cycle",
-    icon: "fas fa-circle-half-stroke",
-    button: true,
-    onClick: openConfig,
-    onChange: openConfig,
-  };
-
   if (Array.isArray(controls)) {
-    // v11/v12 shape: controls is an array of { name, tools: [] } groups.
+    // v11/v12 shape: controls is an array of { name, tools: [] } groups,
+    // and a button-type tool fires its click through onClick only.
+    const tool = {
+      name: "segmentedCycle",
+      title: "Segmented Cycle",
+      icon: "fas fa-circle-half-stroke",
+      button: true,
+      onClick: openConfig,
+    };
     const notes = controls.find((c) => c.name === "notes") ?? controls.find((c) => c.name === "token");
     if (notes && !notes.tools.some((t) => t.name === tool.name)) {
       notes.tools.push(tool);
@@ -651,7 +650,15 @@ function addSceneControlButton(controls) {
     return;
   }
 
-  // v13+ shape: controls is an object keyed by group name, tools is an object too.
+  // v13+ shape: controls is an object keyed by group name, tools is an
+  // object too, and a button-type tool fires its click through onChange.
+  const tool = {
+    name: "segmentedCycle",
+    title: "Segmented Cycle",
+    icon: "fas fa-circle-half-stroke",
+    button: true,
+    onChange: openConfig,
+  };
   const notes = controls.notes ?? controls.token;
   if (notes && notes.tools && !notes.tools[tool.name]) {
     notes.tools[tool.name] = tool;
