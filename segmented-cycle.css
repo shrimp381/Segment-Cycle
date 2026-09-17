@@ -1,0 +1,117 @@
+#segmented-cycle-hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+}
+
+.scy-bar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(18, 18, 15, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  user-select: none;
+  font-family: var(--font-primary, sans-serif);
+}
+
+.scy-grip {
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 4px;
+}
+
+.scy-grip:active {
+  cursor: grabbing;
+}
+
+.scy-grip span {
+  width: 14px;
+  height: 2px;
+  background: #6b6b60;
+  display: block;
+}
+
+.scy-icon {
+  display: flex;
+  align-items: center;
+}
+
+.scy-label-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.scy-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #b9b9ab;
+}
+
+.scy-track {
+  display: flex;
+  gap: 4px;
+  max-width: 240px;
+  flex-wrap: wrap;
+}
+
+.scy-pip {
+  height: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 120ms ease;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.scy-count {
+  font-size: 12px;
+  color: #c8c8ba;
+  min-width: 36px;
+  text-align: center;
+}
+
+.scy-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 2px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.scy-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #d8d8cc;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.scy-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.scy-color {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  margin-left: 2px;
+}
